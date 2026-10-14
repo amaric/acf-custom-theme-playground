@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "acf/faq",
+    "version": "1.1.1",
+    "title": "FAQ",
+    "description": "Frequently asked questions accordion with tag, heading and intro text.",
+    "category": "elysian_theme_blocks",
+    "icon": "editor-help",
+    "keywords": ["faq", "questions", "accordion"],
+    "textdomain": "elysian-theme",
+    "style": [ "file:../dist/css/blocks/faq.css" ],
+    "script": [ "file:../dist/js/blocks/faq.js" ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "../template-parts/blocks/faq.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

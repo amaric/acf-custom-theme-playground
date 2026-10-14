@@ -1,0 +1,11 @@
+@use '../abstracts/mixins';
+
+.container{
+  max-width: 1392px;
+  padding: 0 32px;
+  margin: 0 auto;
+
+  @include mixins.breakpoint-down('sm') {
+    padding: 0 26px;
+  }
+}

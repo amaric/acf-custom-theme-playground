@@ -1,0 +1,44 @@
+@use '../abstracts/variables' as *;
+
+.cta-block{
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba($color-bg-dark, 0.85);
+    z-index: 0;
+  }
+
+  .cta-block-bg{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+  }
+
+  .cta-block-container{
+    text-align: center;
+    max-width: 810px;
+    z-index: 1;
+    position: relative;
+  }
+
+  .cta-block-title{
+    color: $color-white;
+    padding: 0 0 20px;
+  }
+
+  .cta-block-text{
+    color: $color-text-muted;
+    font-size: 2em;
+    line-height: 1.5;
+    padding: 0 0 20px;
+  }
+}

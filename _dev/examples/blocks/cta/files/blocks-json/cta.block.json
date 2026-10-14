@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "acf/cta",
+    "version": "1.0.1",
+    "title": "CTA",
+    "description": "CTA section",
+    "category": "elysian_theme_blocks",
+    "icon": "editor-help",
+    "keywords": ["cta"],
+    "textdomain": "elysian-theme",
+    "style": [ "file:../dist/css/blocks/cta.css" ],
+    "script": [ "file:../dist/js/blocks/cta.js" ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "../template-parts/blocks/cta.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

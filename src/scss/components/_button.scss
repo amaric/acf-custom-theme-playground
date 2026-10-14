@@ -1,0 +1,29 @@
+@use '../abstracts/variables' as *;
+
+.btn{
+  background: $color-primary;
+  border: 1px solid $color-primary;
+  color: $color-white;
+  border-radius: 8px;
+  padding: 16px 28px;
+  font-weight: 600;
+  font-size: 1.5em;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover{
+    color: $color-white;
+  }
+
+  &.btn-outline{
+    background: transparent;
+    border-color: $color-border;
+  }
+
+  &.btn-outline-light{
+    background: transparent;
+    border-color: $color-white;
+  }
+}

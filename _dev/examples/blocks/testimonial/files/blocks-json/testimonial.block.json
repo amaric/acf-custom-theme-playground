@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "acf/testimonial",
+    "version": "1.1.1",
+    "title": "Testimonial",
+    "description": "Client stories: tag, heading and intro text with a Swiper carousel of testimonials.",
+    "category": "elysian_theme_blocks",
+    "icon": "format-quote",
+    "keywords": ["testimonial", "quote", "review", "slider"],
+    "textdomain": "elysian-theme",
+    "style": [ "elysian-theme-swiper-style", "file:../dist/css/blocks/testimonial.css" ],
+    "script": [ "elysian-theme-swiper", "file:../dist/js/blocks/testimonial.js" ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "../template-parts/blocks/testimonial.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

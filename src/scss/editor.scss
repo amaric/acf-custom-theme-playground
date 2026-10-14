@@ -1,0 +1,12 @@
+@use 'base/fonts';
+@use 'editor/block-scope';
+@use 'layout/grid';
+@use 'components/button';
+
+.editor-styles-wrapper{
+  .wp-block[data-type^="acf/"] {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0;
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "name": "elysian-theme",
+  "version": "1.0.0",
+  "description": "WordPress Elysian theme with Gulp workflow",
+  "main": "gulpfile.mjs",
+  "author": "Your Name",
+  "license": "MIT",
+  "keywords": [
+    "wordpress",
+    "acf",
+    "gulp",
+    "theme"
+  ],
+  "engines": {
+    "node": "^22.22.3 || ^24.15.0 || >=26.0"
+  },
+  "scripts": {
+    "start": "gulp",
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "prod": "gulp prod",
+    "quick": "gulp quick",
+    "favicon": "gulp favicon",
+    "fonts": "gulp fonts",
+    "lint:css": "stylelint 'src/scss/**/*.scss'",
+    "lint:js": "eslint 'src/js/**/*.js' '_dev/tools/**/*.mjs'",
+    "lint": "npm run lint:css && npm run lint:js",
+    "lint:fix": "stylelint 'src/scss/**/*.scss' --fix && eslint 'src/js/**/*.js' '_dev/tools/**/*.mjs' --fix",
+    "shot": "node _dev/tools/visual/shot.mjs",
+    "styles:snapshot": "node _dev/tools/visual/styles.mjs snapshot",
+    "styles:diff": "node _dev/tools/visual/styles.mjs diff",
+    "package": "npm run prod && node _dev/tools/package.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "autoprefixer": "^10.5.5",
+    "browser-sync": "^3.0.4",
+    "cssnano": "^9.0.3",
+    "del": "^8.0.1",
+    "eslint": "^10.10.0",
+    "gulp": "^5.0.1",
+    "gulp-favicons": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0",
+    "gulp-ttf2woff2": "^5.0.0",
+    "sass": "^1.104.0",
+    "sharp": "^0.35.4",
+    "stylelint": "^17.15.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "svgo": "^4.1.0"
+  },
+  "overrides": {
+    "node-gyp": "^12"
+  },
+  "allowScripts": {
+    "ttf2woff2@6.0.1": true,
+    "es5-ext": false
+  }
+}

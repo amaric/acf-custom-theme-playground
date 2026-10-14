@@ -1,0 +1,146 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins';
+
+.site-footer{
+  padding: 80px 0 40px;
+  background: $color-bg-dark;
+  border-top: 1px solid $color-border;
+
+  @include mixins.breakpoint-down('lg') {
+    padding: 56px 0 32px;
+  }
+}
+
+.site-footer-container{
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  @include mixins.breakpoint-down('lg') {
+    gap: 48px;
+  }
+}
+
+.site-footer-top{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 48px;
+
+  @include mixins.breakpoint-down('lg') {
+    flex-direction: column;
+    align-items: normal;
+    justify-content: normal;
+  }
+}
+
+.site-footer-brand{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 300px;
+}
+
+.site-footer-logo{
+  display: flex;
+
+  img{
+    width: auto;
+    height: 60px;
+  }
+}
+
+.site-footer-logo-text{
+  color: $color-white;
+  font-size: 2.4em;
+  font-weight: 800;
+}
+
+.site-footer-description{
+  margin: 0;
+  color: $color-text-muted;
+  font-size: 1.4em;
+  line-height: 1.5;
+}
+
+.site-footer-columns{
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+
+  @include mixins.breakpoint-down('lg') {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: normal;
+    gap: 40px 24px;
+  }
+}
+
+.site-footer-column{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.site-footer-column-title{
+  margin: 0;
+  color: $color-white;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.site-footer-menu,
+.site-footer-social-menu{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a{
+    color: $color-text-muted;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible{
+      color: $color-white;
+    }
+  }
+}
+
+.site-footer-menu{
+  flex-direction: column;
+  gap: 16px;
+
+  a{
+    font-size: 1.4em;
+  }
+}
+
+.site-footer-bottom{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 24px;
+  color: $color-text-muted;
+  font-size: 1.3em;
+  border-top: 1px solid $color-border;
+
+  @include mixins.breakpoint-down('lg') {
+    flex-direction: column;
+    align-items: normal;
+    justify-content: normal;
+  }
+}
+
+.site-footer-copyright{
+  margin: 0;
+  color: inherit;
+  font-size: inherit; // base `p` sets 1.6em
+}
+
+.site-footer-social-menu{
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}

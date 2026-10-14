@@ -1,0 +1,180 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins';
+
+.site-header{
+  --site-header-height: 100px;
+
+  position: sticky;
+  top: var(--wp-admin--admin-bar--height, 0); // stylelint-disable-line custom-property-pattern -- WP core variable
+  z-index: 100;
+  background: $color-bg-dark;
+  border-bottom: 1px solid $color-border;
+
+  @include mixins.breakpoint-down('lg') {
+    --site-header-height: 72px;
+  }
+}
+
+.site-header-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: var(--site-header-height);
+}
+
+.site-header-logo{
+  display: flex;
+  flex-shrink: 0;
+
+  img{
+    width: auto;
+    height: 60px;
+
+    @include mixins.breakpoint-down('lg') {
+      height: 40px;
+    }
+  }
+}
+
+.site-header-logo-text{
+  color: $color-white;
+  font-size: 2.4em;
+  font-weight: 800;
+}
+
+.site-header-nav{
+  display: flex;
+
+  @include mixins.breakpoint-down('lg') {
+    display: none;
+  }
+}
+
+.site-header-btn{ // wins over `.btn` because layout loads after components
+  display: inline-flex;
+
+  @include mixins.breakpoint-down('lg') {
+    display: none;
+  }
+}
+
+.site-header-menu{
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a{
+    color: $color-text-muted;
+    font-size: 1.5em;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible{
+      color: $color-white;
+    }
+  }
+
+  .current-menu-item > a{
+    color: $color-white;
+  }
+}
+
+.site-header-toggle{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  margin-right: -10px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  span{
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: $color-white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  @include mixins.breakpoint-down('lg') {
+    display: flex;
+  }
+}
+
+.site-header-overlay{
+  display: none;
+  position: fixed;
+  inset: calc(var(--wp-admin--admin-bar--height, 0px) + var(--site-header-height)) 0 0; // stylelint-disable-line custom-property-pattern -- WP core variable
+  overflow-y: auto;
+  padding: 40px 0;
+  background: $color-bg-dark;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+
+  @include mixins.breakpoint-down('lg') {
+    display: block;
+  }
+}
+
+.site-header-overlay-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.site-header-overlay-menu{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a{
+    color: $color-text-muted;
+    font-size: 2.4em;
+    font-weight: 500;
+
+    &:hover,
+    &:focus-visible{
+      color: $color-white;
+    }
+  }
+
+  .current-menu-item > a{
+    color: $color-white;
+  }
+}
+
+.site-header.is-open{
+  .site-header-overlay{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .site-header-toggle span{
+    &:nth-child(1){
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    &:nth-child(2){
+      opacity: 0;
+    }
+
+    &:nth-child(3){
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}

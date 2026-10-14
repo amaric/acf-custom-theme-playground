@@ -1,0 +1,70 @@
+@use '../abstracts/mixins';
+
+// null = document level (frontend, global.scss);
+// '.block' = same rules scoped to blocks (editor, editor/_block-scope.scss).
+$scope: null !default;
+
+@if $scope {
+  #{$scope} {
+    // WP resets .editor-styles-wrapper to `font-size: initial` (16px); inherit the
+    // root size instead, like body does on the frontend (html is 62.5% in the editor
+    // iframe too — see elysian_theme_editor_root_font_size()).
+    font-size: 1rem;
+    line-height: 1.5;
+    box-sizing: border-box;
+  }
+} @else {
+  html {
+    font-size: 62.5%; /* Better than 10px — respects user browser font settings */
+    line-height: 1.5; /* 1 is too tight as a global default */
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling on mobile orientation change */
+  }
+
+  body {
+    font-optical-sizing: auto;
+    min-height: 100dvh; /* dvh handles mobile browser chrome better than vh */
+  }
+
+  /* Smooth scrolling, but only if no motion preference */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@include mixins.scoped($scope) {
+  // Universal reset
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  blockquote, q {
+    quotes: none;
+  }
+
+  blockquote::before, blockquote::after,
+  q::before, q::after {
+    content: '';
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  input, button, textarea, select {
+    font: inherit; /* Browsers don't inherit font on form elements by default */
+  }
+
+  img, video, svg {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Kills the ghost space under inline images */
+  }
+
+}

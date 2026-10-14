@@ -1,0 +1,63 @@
+// =====================
+// COLORS
+// =====================
+
+$color-primary: #62AC99;
+
+// Dark UI palette (Elysian Figma)
+$color-white: #fff;
+$color-bg-dark: #0D0D0D;        // page / section background
+$color-surface: #141414;        // cards, accordion items, slider buttons
+$color-text-muted: #A3A3A3;     // body copy, secondary links
+$color-border: rgb(255 255 255 / 10%); // hairlines and card borders
+
+// $color-secondary: #ff9800;
+// $color-accent: #00bcd4;
+// $color-warning: #ffc107;
+// $color-success: #4caf50;
+// $color-danger: #f44336;
+// $color-light: #f8f9fa;
+// $color-dark: #343a40;
+// $color-body-bg: #ffffff;
+// $color-body-text: #212529;
+
+// =====================
+// TYPOGRAPHY
+// =====================
+// $font-primary: 'Open Sans', sans-serif;
+// $font-secondary: 'Montserrat', sans-serif;
+// $font-size-base: 16px;
+// $font-size-sm: 14px;
+// $font-size-lg: 20px;
+// $line-height-base: 1.6;
+// $text-font-weight: 700;
+// $heading-font-weight: 700;
+
+// =====================
+// LINKS
+// =====================
+// $link-color: $color-primary;
+// $link-hover-color: $color-secondary;
+// $link-decoration: none;
+// $link-hover-decoration: underline;
+
+// =====================
+// BORDERS & SHADOWS
+// =====================
+// $border-radius-sm: 4px;
+// $border-radius-md: 8px;
+// $border-radius-lg: 16px;
+// $border-width: 1px;
+// $border-color: #e0e0e0;
+// $box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+// =====================
+// BREAKPOINTS
+// =====================
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1200px,
+  'xxl': 1400px,
+);

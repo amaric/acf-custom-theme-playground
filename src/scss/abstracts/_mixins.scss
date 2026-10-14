@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// Min-width breakpoint — only for the occasional "from this size up" tweak.
+// The theme is written desktop-first: use breakpoint-down() for layout.
+@mixin breakpoint($size) {
+  @if map.has-key($breakpoints, $size) {
+    @media (min-width: map.get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $size) {
+      @content;
+    }
+  }
+}
+
+// Max-width breakpoint (desktop-first, the default). Base styles target desktop;
+// this overrides them below $size. Raw values get the same -1px as map keys, so
+// breakpoint-down(1024px) is the exact complement of breakpoint(1024px).
+@mixin breakpoint-down($size) {
+  @if map.has-key($breakpoints, $size) {
+    @media (max-width: (map.get($breakpoints, $size) - 1px)) {
+      @content;
+    }
+  } @else {
+    @media (max-width: ($size - 1px)) {
+      @content;
+    }
+  }
+}
+
+// Nests content under $scope (e.g. .block — keeps the class specificity so it beats
+// editor canvas styles, which WP wraps in a zero-specificity :where()) or emits it
+// at root when $scope is null.
+@mixin scoped($scope) {
+  @if $scope {
+    #{$scope} {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

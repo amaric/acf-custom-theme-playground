@@ -1,0 +1,41 @@
+@use '../abstracts/mixins';
+
+// null = document level (frontend, global.scss);
+// '.block' = same rules scoped to blocks (editor, editor/_block-scope.scss).
+$scope: null !default;
+$root: 'body';
+
+@if $scope {
+  $root: $scope;
+}
+
+#{$root} {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+@include mixins.scoped($scope) {
+  a{
+    text-decoration: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #171717;
+  }
+
+  p{
+    color: #666;
+    font-size: 1.6em;
+    line-height: 1.6;
+  }
+
+  p a{
+    text-decoration: underline;
+  }
+
+  .title-md{
+    font-size: 4.8em;
+    line-height: 1.2;
+  }
+}

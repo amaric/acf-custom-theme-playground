@@ -1,0 +1,3 @@
+@use 'sass:meta';
+@use '../base/reset' with ($scope: '.block');
+@use '../base/base' with ($scope: '.block');
